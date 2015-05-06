@@ -11,6 +11,7 @@
 #include <cstdlib>
 #include <ctime>
 #include "sort.h"
+#include "graph.h"
 
 // For sort
 //
@@ -46,8 +47,8 @@
 //	return 0;
 //}
 int main() {
-	 int a[] = { 1, 1, 2, 3, 4, 5, 6};
+	 
+	Graph1 a(1);
 
-	 cout << binary_search(a, 0, getArrayLen(a), 5) << endl;
-	 cout << squ_search(a, getArrayLen(a), 5) << endl;
+	 return 0;
 }

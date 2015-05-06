@@ -11,6 +11,8 @@
 
 #include "linklist.h"
 
+#define VISITED 1
+#define UNVISITED 0
 // Graph abstract class. This ADT assumes that the number
 // of vertices is fixed when the graph is created.
 class Graph {
@@ -47,12 +49,12 @@ public:
     // Determine if an edge is in the graph
     // v1, v2: The vertices
     // Return: ture if edge i, j has non-zero weight
-    virtual bool isEdge(int v1, int v1) = 0;
+    virtual bool isEdge(int v1, int v2) = 0;
     
     // Return an edge's weight
     // i, j: The vertices
     // Return: The weight od edge i, j or zero
-    virtual int weight(int v1, int v2)
+	virtual int weight(int v1, int v2) = 0;
     
     // Get and det the mark value for a vertex
     // v: The vertex
@@ -81,7 +83,7 @@ private:
     int *mark;
     
 public:
-    Graph1(int numVertex) { Init(numVertex) }
+	Graph1(int numVertex) { Init(numVertex); }
     
     ~Graph1() {
         delete [] mark;    // Return dynamically allocated memory
@@ -96,9 +98,9 @@ public:
         numVertex = n;
         numEdge = 0;
         mark = new int[n];   // Initialize mark array
-        for (i = 0; o < numVertex; ++i) mark[i] = UNVISITED;
+        for (i = 0; i < numVertex; ++i) mark[i] = UNVISITED;
         // Create and initialize adjacency lists
-        vertex = (LIst<Edge>**) new List<Edge>*[numVertex];
+        vertex = (List<Edge>**) new List<Edge>*[numVertex];
         for (i = 0; i < numVertex; ++i) {
             vertex[i] = new LList<Edge>();
         }
@@ -143,10 +145,10 @@ public:
             ++numEdge;
             for (vertex[v1]->moveToStart(); vertex[v1]->currPos() < vertex[v1]->length();
                  vertex[v1]->next()) {
-                Edge temp = vertex[i]->getValue();
-                if (temp.vertex() > j) break;
+                Edge temp = vertex[v1]->getValue();
+                if (temp.vertex() == v2) break;
             }
-            vertex[i]->insert(currEdge);
+            vertex[v1]->insert(currEdge);
         }
     }
     
