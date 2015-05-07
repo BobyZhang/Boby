@@ -11,7 +11,8 @@
 #include <cstdlib>
 #include <ctime>
 #include "sort.h"
-#include "graph.h"
+#include "linkqueue.h"
+#include "graphsearch.h"
 
 // For sort
 //
@@ -47,8 +48,43 @@
 //	return 0;
 //}
 int main() {
-	 
-	Graph1 a(1);
+	 // create a graph
+	Graph1 a(6);
 
-	 return 0;
+	a.setEdge(0, 2, 1);
+	a.setEdge(0, 4, 1);
+	a.setEdge(4, 5, 1);
+	a.setEdge(2, 1, 1);
+	a.setEdge(2, 3, 1);
+	a.setEdge(2, 5, 1);
+	a.setEdge(1, 5, 1);
+	a.setEdge(3, 5, 1);
+
+	//std::cout << a.isEdge(1, 18);
+
+	cout << "DFS: ";
+	DFS(&a, 0);
+	cout << endl << endl;
+
+	LQueue<int> Q;
+
+	cout << "BFS: ";
+	BFS(&a, 0, &Q);
+	cout << endl << endl;
+
+	Graph1 b(7);
+
+	b.setEdge(0, 1, 1);
+	b.setEdge(0, 2, 1);
+	b.setEdge(1, 5, 1);
+	b.setEdge(1, 4, 1);
+	b.setEdge(1, 3, 1);
+	b.setEdge(2, 3, 1);
+	b.setEdge(3, 4, 1);
+	b.setEdge(4, 6, 1);
+
+	cout << "TS: ";
+	topsortQ(&b, &Q);
+	cout << endl << endl;
+	return 0;
 }

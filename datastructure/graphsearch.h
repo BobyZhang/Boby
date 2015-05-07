@@ -3,24 +3,30 @@
 #include "graph.h"
 #include "linkqueue.h"
 
-void DFS(Graph* G, int v) {
+void DFS(Graph1* G, int v) {
+
 	G->setMark(v, VISITED);
+	std::cout << v << ' ';
 	for (int w = G->first(v); w < G->n(); w = G->next(v, w)) {
 		if (G->getMark(w) == UNVISITED) {
 			DFS(G, w);
 		}
 	}
 	// do something
+	
 }
 
-void BFS(Graph* G, int start, Queue<int>* Q) {
+void BFS(Graph1* G, int start, LQueue<int>* Q) {
 	// v, w: The vertices
+	for (int i = 0; i < G->n(); ++i) {
+		G->setMark(i, UNVISITED);  // Init
+	}
 	int v, w;
 	Q->enqueue(start);
 	G->setMark(start, VISITED);
 	while (Q->length() != 0) {
 		v = Q->dequeue();
-		// do something
+		std::cout << v << ' ';
 		for (w = G->first(v); w < G->n(); w = G->next(v, w)) {
 			if (G->getMark(w) == UNVISITED) {
 				G->setMark(w, VISITED);
@@ -30,8 +36,9 @@ void BFS(Graph* G, int start, Queue<int>* Q) {
 	}
 }
 
+void tophelp(Graph1* G, int v);
 // Topological Sort: DFS
-void topsort(Graph* G) {
+void topsort(Graph1* G) {
 	int i;
 	for (i = 0; i < G->n(); ++i) {
 		G->setMark(i, UNVISITED);  // Init
@@ -43,7 +50,7 @@ void topsort(Graph* G) {
 	}
 }
 
-void tophelp(Graph* G, int v) {  // Process vertex v
+void tophelp(Graph1* G, int v) {  // Process vertex v
 	G->setMark(v, VISITED);
 	for (int w = G->first(v); w < G->n(); w = G->next(v, w)) {
 		if (G->getMark(w) == UNVISITED) {
@@ -54,8 +61,8 @@ void tophelp(Graph* G, int v) {  // Process vertex v
 }
 
 // Topological sort: Queue
-void topsortQ(Graph* G, Queue<int>* Q) {
-	int count[G->n()]; //TODO
+void topsortQ(Graph1* G, Queue<int>* Q) {
+	int count[1000]; //TODO
 	int v, w;
 	for (v = 0; v < G->n(); ++v) count[v] = 0; // Init
 
@@ -76,6 +83,7 @@ void topsortQ(Graph* G, Queue<int>* Q) {
 	while (Q->length() != 0) {
 		v = Q->dequeue();
 		// cout
+		cout << v << ' ';
 		for (w = G->first(v); w < G->n(); w = G->next(v, w)) {
 			--count[w];
 			if (count[w] == 0) Q->enqueue(w);
