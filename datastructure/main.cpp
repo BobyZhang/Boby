@@ -48,9 +48,9 @@
 //	return 0;
 //}
 int main() {
-	 // create a graph
+	 // 生成有7个节点的树 a
 	Graph1 a(6);
-
+	// 分别设置边，第一个参数为节点v1，第二个参数为节点v2，第三个参数为边的权重
 	a.setEdge(0, 2, 1);
 	a.setEdge(0, 4, 1);
 	a.setEdge(4, 5, 1);
@@ -60,20 +60,22 @@ int main() {
 	a.setEdge(1, 5, 1);
 	a.setEdge(3, 5, 1);
 
-	//std::cout << a.isEdge(1, 18);
-
 	cout << "DFS: ";
+	// 对树 a 的节点，进行深度优先搜索来遍历	
 	DFS(&a, 0);
 	cout << endl << endl;
 
+	// 用队列实现的广度优先搜索，所以先申请队列
 	LQueue<int> Q;
-
 	cout << "BFS: ";
+	// 对输 a 的节点，进行广度优先搜索来遍历
+	// 第一个参数为 待遍历的树，第二个参数为作为起点的节点，第三个参数为辅助搜索的队列
 	BFS(&a, 0, &Q);
 	cout << endl << endl;
 
+	// 生成有7个节点的书 b
 	Graph1 b(7);
-
+	// 生成课本图11.14的图
 	b.setEdge(0, 1, 1);
 	b.setEdge(0, 2, 1);
 	b.setEdge(1, 5, 1);
@@ -84,6 +86,7 @@ int main() {
 	b.setEdge(4, 6, 1);
 
 	cout << "TS: ";
+	// 对图b进行基于队列实现的，拓扑排序
 	topsortQ(&b, &Q);
 	cout << endl << endl;
 	return 0;
