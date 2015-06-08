@@ -17,12 +17,65 @@ private:
 public:
 	Stack(const Stack&) {}
 	Stack() {}
-	virtual ~Stack() {}
+	virtual ~Stack() {} 
 	virtual void clear() = 0;
 	virtual void push(const E& it) = 0;
 	virtual E pop() = 0;
 	virtual const E& topValue() const = 0;
 	virtual int length() const = 0;
+};
+
+// array-based stack implementtation
+template <typename E>
+class AStack : public Stack<E> {
+private:
+	int maxSize;           // Maximun size of stack
+	int top;               // Index for top element
+	E *listArray;          // Array holding stack elements
+
+public:
+	// Constructor
+	AStack(int size) {
+		maxSize = size;
+		top = 0;
+		listArray = new E[size];
+	}
+
+	~AStack() { delete[] listArray; }
+
+	void clear() { top = 0; }
+
+	void push(const E& it) {
+		if (top == maxSize) {
+			cout << "Stack is full!" << endl;
+			return;
+		}
+		listArray[top++] = it;
+	}
+
+	E pop() {
+		if (top == 0;) {                // Pop top element
+			cout << "Stack is empty!" << endl;
+			// if err, return a empty E
+			// TODO, shit design
+			E err;
+			return err;
+		}
+		return listArray[--top];
+	}
+
+	const E& topValue() const {         // Return top element
+		if (top == 0) {
+			cout << "Stack is empty!" << endl;
+			// if err, return a empty E
+			// TODO, shit design
+			E err;
+			return err;
+		}
+		return listArray[top - 1];
+	}
+
+	int length() const { return top; }  // Return length
 };
 
 // linked stack implementation
