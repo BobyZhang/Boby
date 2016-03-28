@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>重大教务网</title>
+  <link rel="stylesheet" href="../css/index.css" />
+  <script src="../js/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="wrapper">
+      <img class="logo" src="../img/logo-jwc.png" alt="logo" />
+      <div class="online-count">在线人数: 236</div>
+    </div>
+  </header>
+  <div class="bar">
+    <div class="wrapper">
+      <div class="statu">学生: [2013XXXX] XXX</div>
+      <ul class="func">
+        <li class="func-list">[首页]</li>
+        <li class="func-list">[后退]</li>
+        <li class="func-list">[刷新]</li>
+        <li class="func-list">[帮助]</li>
+        <li class="func-list logout">[注销]</li>
+      </ul>
+    </div>
+  </div>
+  <div class="main">
+    <div class="wrapper">
+      <ul class="nav">
+        <li class="nav-list">
+          <p>学生学籍</p>
+          <ul class="sub-nav">
+            <li class="sub-nav-list">+ 学籍档案</li>
+            <li class="sub-nav-list">- 注册信息</li>
+            <li class="sub-nav-list">+ 学籍异动</li>
+            <li class="sub-nav-list">+ 毕业事宜</li>
+          </ul>
+        </li>
+        <li class="nav-list">
+          <p>培养方案</p>
+          <ul class="sub-nav">
+            <li class="sub-nav-list">- 专业培养方案</li>
+            <li class="sub-nav-list">- 毕业学分要求</li>
+            <li class="sub-nav-list">- 查看课程大纲</li>
+          </ul>
+        </li>
+        <li class="nav-list">
+          <p>网上选课</p>
+          <ul class="sub-nav">
+            <li class="sub-nav-list">- 刷新考试选课</li>
+            <li class="sub-nav-list">- 查看课程教材</li>
+          </ul>
+        </li>
+        <li class="nav-list">
+          <p>教学安排</p>
+          <ul class="sub-nav">
+            <li class="sub-nav-list">- 查看个人课表</li>
+            <li class="sub-nav-list">- 查看课表[按课程]</li>
+            <li class="sub-nav-list">- 查看课表[按教师]</li>
+            <li class="sub-nav-list">- 查看课表[按班级]</li>
+          </ul>
+        </li>
+        <li class="nav-list">
+          <p>考试安排</p>
+          <ul class="sub-nav">
+            <li class="sub-nav-list">- 考试安排表</li>
+          </ul>
+        </li>
+        <li class="nav-list">
+          <p>学生成绩</p>
+          <ul class="sub-nav">
+            <li class="sub-nav-list">- 查看成绩</li>
+            <li class="sub-nav-list">- 成绩分布</li>
+            <li class="sub-nav-list">- 查看平时成绩</li>
+          </ul>
+        </li>
+        <li class="nav-list">
+          <p>网上评教</p>
+          <ul class="sub-nav">
+            <li class="sub-nav-list">- 提交教学评价表</li>
+          </ul>
+        </li>
+        <li class="nav-list">
+          <p>论&nbsp;&nbsp;&nbsp;&nbsp;坛</p>
+          <ul class="sub-nav">
+            <li class="sub-nav-list">- 论坛首页</li>
+          </ul>
+        </li>
+        <li class="nav-list">
+          <p>其&nbsp;&nbsp;&nbsp;&nbsp;他</p>
+          <ul class="sub-nav">
+            <li class="sub-nav-list">- 修改个人密码</li>
+            <li class="sub-nav-list">- 查看个人登录日志</li>
+            <li class="sub-nav-list">- 文件下载</li>
+          </ul>
+        </li>
+      </ul>
+      <div class="content"></div>
+      <div class="clear"></div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="wrapper wrapper-footer">
+      ©2016 重庆大学教务处 (& 张世宝) All Rights Reserved
+    </div>
+  </footer>
+  <script>
+    // click event
+    $(".nav-list p").click(function () {
+      // $(".sub-nav").css('display', 'none');
+      $(".sub-nav").slideUp();
+      // $(this).next().css('display', 'block');
+      $(this).next().slideDown();
+      // this.parent.find('.sub-nav').css('display', 'block');
+    });
+    
+    $('.logout').click(function () {
+      location.href = '../index.html'
+    });
+  </script>
+</body>
+</html>

@@ -5,7 +5,6 @@
 
 #include <cmath>
 
-#include "linklist.h"
 #include "linkqueue.h"
 
 // base stack -- ADT
@@ -54,7 +53,7 @@ public:
 	}
 
 	E pop() {
-		if (top == 0;) {                // Pop top element
+		if (top == 0) {                // Pop top element
 			cout << "Stack is empty!" << endl;
 			// if err, return a empty E
 			// TODO, shit design
@@ -122,36 +121,5 @@ private:
 	Link<E>* top;
 	int size;
 };
-
-// 4.17
-int recurrence(const int& n) {
-	LStack<int> S; // need a stack
-	int result = 0; // init
-	S.push(n);
-	while (S.length() > 0) {
-		int temp = S.pop();
-		result += temp;
-		if (temp != 1) {
-			S.push(ceil(temp / 2.0));
-			S.push(floor(temp / 2.0));
-		}
-	}
-	return result;
-}
-
-// Use a blank Stack and a Queue
-// invert a Queue
-template <typename E>
-void invertQueue(LQueue<E>& target_que) {
-	LStack<E> trans_stack; // need a null stack
-	// move the element of Queue to Stack
-	while (target_que.length() > 0) {
-		trans_stack.push(target_que.dequeue());
-	}
-	// move the element of Stack to Queue
-	while (trans_stack.length() > 0) {
-		target_que.enqueue(trans_stack.pop());
-	}
-}
 
 #endif

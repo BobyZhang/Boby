@@ -1,6 +1,8 @@
 
 
 #pragma once
+#ifndef LINKQUEUE_H
+#define LINKQUEUE_H
 
 #include "linklist.h"
 // Abstract queue clss
@@ -73,3 +75,5 @@ public:
 
 	int length() const { return size; }
 };
+
+#endif

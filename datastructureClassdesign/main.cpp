@@ -3,19 +3,12 @@
 
 int main()
 {
-	string b = "£¨¡®A¡¯£¬ºÍ 1f24   , 999999)";
+	// 2 means 2 empty place
+	// 1 means cost 1 perduration
+	Parkinglot park(2, 1);
+	
+	// opne a business
+	park.openBusiness();
 
-	Input_inf a = handleInput(b);
-
-	if (a.isValid())
-	{
-		cout << a.getStatu() << endl
-			<< a.getPlate() << endl
-			<< a.getTime() << endl;
-	}
-	else
-	{
-		cout << "Input is invalid";
-	}
 	return 0;
 }
