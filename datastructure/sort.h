@@ -154,3 +154,33 @@ int squ_search(const E arr[], int length, const E key) {
 	// not found
 	return -1;
 }
+
+// Quik sort
+template <typename E>
+void qsort(E A[], int i, int j) {
+	// Don't sort 0 or 1 element
+	if (j <= i) return;
+
+	int pivotindex = findpivot(A, i, j);
+
+	int k = partition<E>(A, i - 1, j, A[j]);
+	std::swap(A[k], A[j]);
+
+	qsort<E>(A, i, k - 1);
+	qsort<E>(A, k + 1, j);
+}
+
+template <typename E>
+int findpivot(E A[], int i, int j) {
+	return (i + j) / 2;
+}
+
+template <typename E>
+int partition(E A[], int l, int r, E& pivot) {
+	do {
+		while (compare(A[++l], pivot));   // Move l right and
+		while ((l < r) && compare(pivot, A[--r]));  // r left
+		std::swap(A[l], A[r]);
+	} while (l < r);
+	return l;  // Return first position in right partition
+}
