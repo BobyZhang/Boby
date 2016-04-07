@@ -94,8 +94,20 @@
 //}
 
 int main() {
-	int a[] = { 2, 5, 1, 7, 33, 0, 3 };
+	//int a[] = { 2, 5, 1, 7, 33, 0, 3 };
 
-	qsort(a, 0, 6);
+	//qsort(a, 0, 6);
+	//heapsort(a, 7);
 	return	0;
+	//int &b = 0;
+	int a = 1;
+	int *p = &a;
+	const int &c = 1;
+	int * const p1 = &a;
+	const int * p2 = &a;
+	int const* p3 = &a;
+
+	p1 = p;
+	p2 = p;
+	p3 = p;
 }

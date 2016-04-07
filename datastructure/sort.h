@@ -2,17 +2,18 @@
 
 #include <iostream>
 #include <string>
+#include "heap.h"
 
 using std::cout;
 using std::endl;
 using std::string;
 
-// compare
-template <typename E>
-bool compare(E a, E b) {
-	if (a == b) return false;
-	else return a > b;
-}
+//// compare
+//template <typename E>
+//bool compare(E a, E b) {
+//	if (a == b) return false;
+//	else return a < b;
+//}
 
 // get array's length
 template <typename E>
@@ -156,6 +157,8 @@ int squ_search(const E arr[], int length, const E key) {
 }
 
 // Quik sort
+//
+//
 template <typename E>
 void qsort(E A[], int i, int j) {
 	// Don't sort 0 or 1 element
@@ -183,4 +186,16 @@ int partition(E A[], int l, int r, E& pivot) {
 		std::swap(A[l], A[r]);
 	} while (l < r);
 	return l;  // Return first position in right partition
+}
+
+// Heap sort
+//
+//
+template <typename E>
+void heapsort(E A[], int n) {
+	E maxval;
+	heap<E> H(A, n, n);
+	for (int i = 0; i < n; i++) {
+		maxval = H.removefirst();    // Place maxval at end
+	}
 }
