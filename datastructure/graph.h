@@ -13,6 +13,8 @@
 
 #define VISITED 1
 #define UNVISITED 0
+#define INFINITY 0xffffff
+
 // Graph abstract class. This ADT assumes that the number
 // of vertices is fixed when the graph is created.
 class Graph {

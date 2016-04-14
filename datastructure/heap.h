@@ -88,7 +88,7 @@ public:
 	E removefirst() {
 		if (n <= 0) {
 			cout << "Heap is empty" << endl;
-			return 0;
+			//return NULL;
 		}
 
 		std::swap(Heap[0], Heap[--n]);    // Swap first with last value

@@ -94,20 +94,26 @@
 //}
 
 int main() {
-	//int a[] = { 2, 5, 1, 7, 33, 0, 3 };
+	
+    // 生成课本图11.16的图
+    Graph1 g(5);
+    g.setEdge(0, 1, 10);
+    g.setEdge(0, 2, 3);
+    g.setEdge(0, 3, 20);
+    g.setEdge(1, 3, 5);
+    g.setEdge(2, 1, 2);
+    g.setEdge(2, 4, 15);
+    g.setEdge(3, 4, 11);
 
-	//qsort(a, 0, 6);
-	//heapsort(a, 7);
-	return	0;
-	//int &b = 0;
-	int a = 1;
-	int *p = &a;
-	const int &c = 1;
-	int * const p1 = &a;
-	const int * p2 = &a;
-	int const* p3 = &a;
+    int* D = new int[5];
+    D[0] = 0;
+    for (int i = 1; i < 5; ++i) D[i] = INFINITY;
 
-	p1 = p;
-	p2 = p;
-	p3 = p;
+    //Dijkstra(&g, D, 0);
+    Dijkstraheap(&g, D, 0);
+
+    for (int i = 0; i < 5; ++i) {
+        cout << D[i] << " ";
+    }
+    return 0;
 }
