@@ -93,27 +93,27 @@
 //	return 0;
 //}
 
-int main() {
-	
-    // 生成课本图11.16的图
-    Graph1 g(5);
-    g.setEdge(0, 1, 10);
-    g.setEdge(0, 2, 3);
-    g.setEdge(0, 3, 20);
-    g.setEdge(1, 3, 5);
-    g.setEdge(2, 1, 2);
-    g.setEdge(2, 4, 15);
-    g.setEdge(3, 4, 11);
-
-    int* D = new int[5];
-    D[0] = 0;
-    for (int i = 1; i < 5; ++i) D[i] = INFINITY;
-
-    //Dijkstra(&g, D, 0);
-    Dijkstraheap(&g, D, 0);
-
-    for (int i = 0; i < 5; ++i) {
-        cout << D[i] << " ";
-    }
-    return 0;
-}
+//int main() {
+//	
+//    // 生成课本图11.16的图
+//    Graph1 g(5);
+//    g.setEdge(0, 1, 10);
+//    g.setEdge(0, 2, 3);
+//    g.setEdge(0, 3, 20);
+//    g.setEdge(1, 3, 5);
+//    g.setEdge(2, 1, 2);
+//    g.setEdge(2, 4, 15);
+//    g.setEdge(3, 4, 11);
+//
+//    int* D = new int[5];
+//    D[0] = 0;
+//    for (int i = 1; i < 5; ++i) D[i] = INFINITY;
+//
+//    //Dijkstra(&g, D, 0);
+//    Dijkstraheap(&g, D, 0);
+//
+//    for (int i = 0; i < 5; ++i) {
+//        cout << D[i] << " ";
+//    }
+//    return 0;
+//}

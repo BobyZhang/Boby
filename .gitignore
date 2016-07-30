@@ -1,0 +1,18 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/datastructure/Debug
+/datastructureClassdesign/.vs/parkinglot/v14/.suo
+/datastructure/.vs/datastructure/v14/.suo
+/datastructure/datastructure.vcxproj.filters
+/datastructure/datastructure.vcxproj
+/datastructure/datastructure.v12.suo
+/datastructure/datastructure.sln
+/datastructure/datastructure.sdf
+/datastructure/datastructure.idc
+/datastructureClassdesign/Debug
+/datastructureClassdesign/parkinglot.vcxproj.filters
+/datastructureClassdesign/parkinglot.vcxproj
+/datastructureClassdesign/parkinglot.sln
+/datastructureClassdesign/parkinglot.sdf
